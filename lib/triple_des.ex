@@ -10,7 +10,7 @@ defmodule TripleDes do
   @doc """
   ## Examples
   """
-  def encrypt(mode, key, data) do
+  def encrypt(data, key, mode) do
     [key1, key2, key3] = generate(key)
     case mode == :des3_ecb do
       true -> data = :crypto.block_encrypt(:des_ecb, key1, data)
@@ -21,7 +21,7 @@ defmodule TripleDes do
 
   end
 
-  def decrypt(mode, key, data) do
+  def decrypt(data, key, mode) do
     [key1, key2, key3] = generate(key)
     case mode == :des3_ecb do
       true -> data = :crypto.block_decrypt(:des_ecb, key3, data)
@@ -32,18 +32,18 @@ defmodule TripleDes do
 
   end
 
-  def encrypt(mode, key, ivec, data) do
+  def encrypt(data, key, ivec, mode) do
     [key1, key2, key3] = generate(key)
     case mode == :des3_ecb do
-      true -> encrypt(mode, key, data)
+      true -> encrypt(data, key, mode)
       false -> :crypto.block_encrypt(mode, [key1, key2, key3], ivec, data)
     end
   end
 
-  def decrypt(mode, key, ivec, data) do
+  def decrypt(data, key, ivec, mode) do
     [key1, key2, key3] = generate(key)
     case mode == :des3_ecb do
-      true -> decrypt(mode, key, data)
+      true -> decrypt(data, key, mode)
       false -> :crypto.block_decrypt(mode, [key1, key2, key3], ivec, data)
     end
   end
