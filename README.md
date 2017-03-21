@@ -9,10 +9,10 @@
 
   ## Examples
   ```elixir
-  TripleDes.encrypt(mode, key, data)
-  TripleDes.decrypt(mode, key, data)
-  TripleDes.encrypt(mode, key, ivec, data)
-  TripleDes.decrypt(mode, key, ivec, data)
+  TripleDes.encrypt(data, key, mode)
+  TripleDes.decrypt(data, key, mode)
+  TripleDes.encrypt(data, key, ivec, mode)
+  TripleDes.decrypt(data, key, ivec, mode)
   ```
 
 ## Installation
