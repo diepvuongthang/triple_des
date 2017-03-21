@@ -1,17 +1,16 @@
 # TripleDes
 
-  mode: :des3_ecb, :des3_cbc, des_ede3
-  key: iodata, must be a multiple of 64 bits (8 bytes).
-  ivec: an arbitrary initializing vector, must be a multiple of 64 bits (8 bytes)
-  data: iodata, must be a multiple of 64 bits (8 bytes).
+  ### mode: :des3_ecb, :des3_cbc, des_ede3
+  ### key: iodata, must be a multiple of 64 bits (8 bytes).
+  ### ivec: an arbitrary initializing vector, must be a multiple of 64 bits (8 bytes).
+  ### data: iodata, must be a multiple of 64 bits (8 bytes).
 
-  @doc """
+
   ## Examples
-  TripleDes.encrypt(mode, key, data)
-  TripleDes.decrypt(mode, key, data)
-  TripleDes.encrypt(mode, key, ivec, data)
-  TripleDes.decrypt(mode, key, ivec, data)
-  """
+  ### TripleDes.encrypt(mode, key, data)
+  ### TripleDes.decrypt(mode, key, data)
+  ### TripleDes.encrypt(mode, key, ivec, data)
+  ### TripleDes.decrypt(mode, key, ivec, data)
 
 ## Installation
 
