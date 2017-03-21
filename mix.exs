@@ -25,7 +25,7 @@ defmodule TripleDes.Mixfile do
   defp package do
     [
       name: :triple_des,
-      files: ["lib", "src", "mix.exs", "readme*"],
+      files: ["lib", "mix.exs", "readme*"],
       maintainers: ["Son Thai", "Vuong Thang"],
       licenses: ["MIT"],
       links: %{"GitHub" => "https://github.com/diepvuongthang/triple_des.git"}
