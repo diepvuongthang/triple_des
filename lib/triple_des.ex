@@ -15,10 +15,10 @@ defmodule TripleDes do
   def encrypt(data, key, mode) do
     [key1, key2, key3] = generate(key)
     case mode == :des3_ecb do
-      true -> data = :crypto.block_encrypt(:des_ecb, key1, data)
-        data = :crypto.block_decrypt(:des_ecb, key2, data)
-        :crypto.block_encrypt(:des_ecb, key3, data)
-      false -> :crypto.block_encrypt(mode, [key1, key2, key3], data)
+      true -> data = :crypto.crypto_one_time(:des_ecb, key1, data, encrypt: true)
+        data = :crypto.crypto_one_time(:des_ecb, key2, data, encrypt: false)
+        :crypto.crypto_one_time(:des_ecb, key3, data, encrypt: true)
+      false -> :crypto.crypto_one_time(mode, [key1, key2, key3], data, encrypto: true)
     end
 
   end
@@ -26,10 +26,10 @@ defmodule TripleDes do
   def decrypt(data, key, mode) do
     [key1, key2, key3] = generate(key)
     case mode == :des3_ecb do
-      true -> data = :crypto.block_decrypt(:des_ecb, key3, data)
-        data = :crypto.block_encrypt(:des_ecb, key2, data)
-        :crypto.block_decrypt(:des_ecb, key1, data)
-      false -> :crypto.block_decrypt(mode, [key1, key2, key3], data)
+      true -> data = :crypto.crypto_one_time(:des_ecb, key3, data, encrypt: false)
+        data = :crypto.crypto_one_time(:des_ecb, key2, data, encrypt: true)
+        :crypto.crypto_one_time(:des_ecb, key1, data, encrypt: false)
+      false -> :crypto.crypto_one_time(mode, [key1, key2, key3], data, encrypt: false)
     end
 
   end
