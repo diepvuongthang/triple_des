@@ -3,7 +3,7 @@ defmodule TripleDes.Mixfile do
 
   def project do
     [app: :triple_des,
-     version: "1.0.0",
+     version: "1.1.0",
      elixir: "~> 1.4",
      description: "TripleDES crypto",
      build_embedded: Mix.env == :prod,
@@ -13,7 +13,7 @@ defmodule TripleDes.Mixfile do
   end
 
   def application do
-    [extra_applications: [:logger]]
+    [extra_applications: [:logger, :crypto]]
   end
 
   defp deps do
